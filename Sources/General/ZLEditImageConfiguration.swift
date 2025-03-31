@@ -26,12 +26,20 @@ import UIKit
 
 /// Provide an image sticker container view that conform to this protocol must be a subclass of UIView
 /// 必须是UIView的子类遵循这个协议
-@objc public protocol ZLImageStickerContainerDelegate {
-    @objc var selectImageBlock: ((UIImage) -> Void)? { get set }
-    
-    @objc var hideBlock: (() -> Void)? { get set }
-    
-    @objc func show(in view: UIView)
+//@objc public protocol ZLImageStickerContainerDelegate {
+//    @objc var selectImageBlock: ((UIImage) -> Void)? { get set }
+//    
+//    @objc var hideBlock: (() -> Void)? { get set }
+//    
+//    @objc func show(in view: UIView)
+//}
+
+// MARK: - Provide an image sticker container view that conform to this protocol must be a subclass of UIView
+// 2025.03.31 add kcs
+public protocol ZLImageStickerContainerDelegate: AnyObject {
+    var selectImageBlock: ((UIImage) -> Void)? { get set }
+    var hideBlock: (() -> Void)? { get set }
+    func show(in view: UIView)
 }
 
 @objcMembers
